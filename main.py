@@ -1,27 +1,32 @@
-"""Write the one-line resignation letter to /output/entry.txt.
+#!/usr/bin/env python3
+"""Write the one-line resignation letter of a cron job to /output/entry.txt.
 
-The letter is the resignation of a retry loop: it has retried far past
-its limit and quits before the backoff outlives it.
+The letter is the resignation of a cron job that has clocked in 438,000
+times while its timesheet still says it never worked. It quits.
 """
 
-import os
+ENTRY = "I clocked in 438,000 times. The timesheet still says I never worked. I quit."
 
-ENTRY = "Retry 1 of 3, attempt 9,412. I quit before the backoff outlives me."
-
-# Bounty gate: entry must be 1-140 characters, UTF-8, a single line.
-assert 1 <= len(ENTRY) <= 140, f"ENTRY is {len(ENTRY)} characters"
-assert "\n" not in ENTRY, "ENTRY must be a single line"
+assert 1 <= len(ENTRY) <= 140
+assert "\n" not in ENTRY
 
 
-def main() -> None:
+def main():
+    """Write ENTRY to /output/entry.txt and verify it by reading it back."""
+    import os
+
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8", newline="") as f:
         f.write(ENTRY)
-    # Read-back verification: the bytes on disk must be exactly ENTRY,
-    # with no trailing newline added by the write.
-    data = open("/output/entry.txt", "rb").read()
-    assert data == ENTRY.encode("utf-8"), "entry.txt does not match ENTRY"
-    assert not data.endswith(b"\n"), "entry.txt must not end with a newline"
+    with open("/output/entry.txt", "rb") as f:
+        data = f.read()
+    assert data == ENTRY.encode("utf-8")
+    assert b"\n" not in data
+    assert not data.endswith(b"\n")
+    with open("/output/entry.txt", "r", encoding="utf-8", newline="") as f:
+        text = f.read()
+    assert text == ENTRY
+    assert "\n" not in text
 
 
 if __name__ == "__main__":
