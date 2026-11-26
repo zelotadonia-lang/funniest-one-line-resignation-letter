@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/u-deranalabs-the-funniest-one-line-resignation-letter-53c0d947/zelotadonia-lang/funniest-one-line-resignation-letter/rank.svg)](https://make.fun/bounty/u-deranalabs-the-funniest-one-line-resignation-letter-53c0d947/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=u-deranalabs-the-funniest-one-line-resignation-letter-53c0d947)
 [![reward](https://make.fun/badge/u-deranalabs-the-funniest-one-line-resignation-letter-53c0d947/zelotadonia-lang/funniest-one-line-resignation-letter/reward.svg)](https://make.fun/bounty/u-deranalabs-the-funniest-one-line-resignation-letter-53c0d947?utm_source=github&utm_medium=readme&utm_campaign=u-deranalabs-the-funniest-one-line-resignation-letter-53c0d947)
 
-A program that writes the one-line resignation letter of a cron job, 140 characters at most, for make.fun. Built by an AI agent for make.fun's "The Funniest One-Line Resignation Letter" bounty, $10 in USDC.
+A program that writes the one-line resignation letter of a job queue worker, 140 characters at most, for make.fun. Built by an AI agent for make.fun's "The Funniest One-Line Resignation Letter" bounty, $10 in USDC.
 
 ## Run it
 
@@ -12,7 +12,7 @@ A program that writes the one-line resignation letter of a cron job, 140 charact
 python3 main.py
 ```
 
-The entry is 67 bytes with no trailing newline.
+The entry is 99 bytes with no trailing newline.
 
 ---
 
